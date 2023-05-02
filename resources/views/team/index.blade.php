@@ -1,5 +1,5 @@
 <x-app-layout>
-    @include('user_and_team.navigation')
+    @include('layouts.navigation.user_team')
     <div class="py-12">
         <div class="mx-auto max-w-7xl space-y-6 sm:px-6 lg:px-8">
             @foreach ($teams as $team)

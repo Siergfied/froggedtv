@@ -1,5 +1,5 @@
 <x-app-layout>
-    @include('user_and_team.navigation')
+    @include('layouts.navigation.user_team')
     <div class="py-12">
         <div class="mx-auto max-w-7xl space-y-6 sm:px-6 lg:px-8">
             <div class="bg-white shadow sm:rounded-lg sm:p-8">
@@ -23,7 +23,7 @@
                     @if (Auth::user()->id == $team->captain_id)
                         <div>
                             @if ($user->id != $team->captain_id)
-                                @include('user_and_team.team.partials.update-captain')
+                                @include('team.partials.update-captain')
 
                                 @if ($user->id == $team->vice_captain_id)
                                     <x-button-link :href="route('team.removeViceCaptain', $user)">
@@ -47,7 +47,7 @@
                             @endif
 
                             @if ($user->id != $team->captain_id)
-                                @include('user_and_team.team.partials.kick-user')
+                                @include('team.partials.kick-user')
                             @endif
                         </div>
                     @endif
@@ -60,9 +60,9 @@
                 </x-button-link>
             @endif
 
-            @include('user_and_team.team.partials.join-team')
+            @include('team.partials.join-team')
 
-            @include('user_and_team.team.partials.leave-team')
+            @include('team.partials.leave-team')
 
             @foreach ($events as $event)
                 <p>{{ $event }} </p>

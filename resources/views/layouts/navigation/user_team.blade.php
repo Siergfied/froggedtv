@@ -7,10 +7,11 @@
             <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
                 {{ __('Liste des joueurs') }}
             </x-nav-link>
-            <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
+            <x-nav-link :href="route('toolmixPlayer.index')" :active="request()->routeIs('toolmixPlayer.*')">
                 {{ __('Toolmix des joueurs') }}
             </x-nav-link>
         </div>
+
         <div>
             <p>|</p>
         </div>

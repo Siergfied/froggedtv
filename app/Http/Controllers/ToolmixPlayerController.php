@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ToolmixPlayer;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class ToolmixPlayerController extends Controller
@@ -12,7 +13,7 @@ class ToolmixPlayerController extends Controller
      */
     public function index()
     {
-        //
+        return view('toolmix_player.index');
     }
 
     /**
@@ -20,15 +21,15 @@ class ToolmixPlayerController extends Controller
      */
     public function create()
     {
-        //
+        return view('toolmix_player.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        dd($request);
     }
 
     /**

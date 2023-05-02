@@ -21,7 +21,7 @@ class TeamController extends Controller
      */
     public function index(): View
     {
-        return view('user_and_team.team.index', [
+        return view('team.index', [
             'teams' => Team::all()
         ]);
     }
@@ -31,7 +31,7 @@ class TeamController extends Controller
      */
     public function create(): View
     {
-        return view('user_and_team.team.create');
+        return view('team.create');
     }
 
     /**
@@ -83,7 +83,7 @@ class TeamController extends Controller
 
         $users = $captain->merge($vice_captain)->merge($players)->merge($coach);
 
-        return view('user_and_team.team.show', [
+        return view('team.show', [
             'team' => $team,
             'users' => $users,
             'events' => TeamEvent::where('team_id', $team_id)->orderBy('id', 'desc')->get()
@@ -99,7 +99,7 @@ class TeamController extends Controller
 
         $this->authorize('update', $team);
 
-        return view('user_and_team.team.edit', [
+        return view('team.edit', [
             'team' => $team
         ]);
     }

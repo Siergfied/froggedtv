@@ -18,7 +18,7 @@ class UserController extends Controller
      */
     public function index(): View
     {
-        return view('user_and_team.user.index', [
+        return view('user.index', [
             'users' => User::all(),
         ]);
     }
@@ -46,7 +46,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($user_id);
 
-        return view('user_and_team.user.show', [
+        return view('user.show', [
             'user' => $user,
         ]);
     }
@@ -59,7 +59,7 @@ class UserController extends Controller
         $user = User::findOrFail($user_id);
         $this->authorize('update', $user);
 
-        return view('user_and_team.user.edit', [
+        return view('user.edit', [
             'user' => $user,
         ]);
     }
