@@ -14,12 +14,14 @@ return new class extends Migration
         Schema::create('toolmix_teams', function (Blueprint $table) {
             $table->id();
             $table->foreignId('team_id')->constrained('teams');
-            $table->boolean('hard_support')->nullable();
-            $table->boolean('soft_support')->nullable();
-            $table->boolean('off_lane')->nullable();
-            $table->boolean('mid_lane')->nullable();
-            $table->boolean('safe_lane')->nullable();
-            $table->text('description')->nullable();
+            $table->integer('mmr_min')->nullable();
+            $table->integer('mmr_max')->nullable();
+            $table->boolean('hard_support')->default(false);
+            $table->boolean('soft_support')->default(false);
+            $table->boolean('off_lane')->default(false);
+            $table->boolean('mid_lane')->default(false);
+            $table->boolean('safe_lane')->default(false);
+            $table->text('commentaire')->nullable();
             $table->timestamps();
         });
     }

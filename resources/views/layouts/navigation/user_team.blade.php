@@ -29,7 +29,7 @@
             <x-nav-link :href="route('team.index')" :active="request()->routeIs('team.index')">
                 {{ __('Liste des équipes') }}
             </x-nav-link>
-            <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
+            <x-nav-link :href="route('toolmixTeam.index')" :active="request()->routeIs('toolmixTeam.*')">
                 {{ __('Toolmix des équipes') }}
             </x-nav-link>
         </div>

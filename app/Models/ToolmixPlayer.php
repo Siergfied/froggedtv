@@ -21,7 +21,7 @@ class ToolmixPlayer extends Model
         'off_lane',
         'mid_lane',
         'safe_lane',
-        'description'
+        'commentaire'
     ];
 
     public function user(): BelongsTo

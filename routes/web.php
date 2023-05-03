@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ToolmixPlayerController;
+use App\Http\Controllers\ToolmixTeamController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -93,6 +94,20 @@ Route::controller(ToolmixPlayerController::class)->group(function () {
         Route::get('/', 'index')->name('toolmixPlayer.index');
         Route::get('create', 'create')->name('toolmixPlayer.create');
         Route::post('store', 'store')->name('toolmixPlayer.store');
+        Route::get('edit', 'edit')->name('toolmixPlayer.edit');
+        Route::patch('update', 'update')->name('toolmixPlayer.update');
+        Route::delete('destroy', 'destroy')->name('toolmixPlayer.destroy');
+    });
+});
+
+Route::controller(ToolmixTeamController::class)->group(function () {
+    Route::prefix('toolmixTeam')->middleware('auth')->group(function () {
+        Route::get('/', 'index')->name('toolmixTeam.index');
+        Route::get('create', 'create')->name('toolmixTeam.create');
+        Route::post('store', 'store')->name('toolmixTeam.store');
+        Route::get('edit', 'edit')->name('toolmixTeam.edit');
+        Route::patch('update', 'update')->name('toolmixTeam.update');
+        Route::delete('destroy', 'destroy')->name('toolmixTeam.destroy');
     });
 });
 

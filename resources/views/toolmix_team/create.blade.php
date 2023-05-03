@@ -4,12 +4,26 @@
     <div class="py-12">
         <div class="mx-auto max-w-7xl space-y-6 sm:px-6 lg:px-8">
             <div class="bg-white p-4 shadow sm:rounded-lg sm:p-8">
-                <form method="POST" action="{{ route('toolmixPlayer.store') }}">
+                <form method="POST" action="{{ route('toolmixTeam.store') }}">
                     @csrf
 
+                    <div>
+                        <x-input-label for="mmr_min" :value="__('MMR Minimum')" />
+                        <x-text-input id="mmr_min" name="mmr_min" type="number" min="0" class="mt-1 block w-full"
+                            :value="old('mmr_min')" autofocus autocomplete="name" />
+                        <x-input-error class="mt-2" :messages="$errors->get('mmr_min')" />
+                    </div>
+
+                    <div>
+                        <x-input-label for="mmr_max" :value="__('MMR Maximum')" />
+                        <x-text-input id="mmr_max" name="mmr_max" type="number" min="0"
+                            class="mt-1 block w-full" :value="old('mmr_max')" autofocus autocomplete="name" />
+                        <x-input-error class="mt-2" :messages="$errors->get('mmr_max')" />
+                    </div>
+
                     <fieldset>
-                        <legend class='block text-sm font-medium text-gray-700'>Quels sont les rôles que vous pouvez
-                            jouer ?</legend>
+                        <legend class='block text-sm font-medium text-gray-700'>Quels sont les rôles que vous recherchez
+                            ?</legend>
 
                         <input id="safe_lane" type="checkbox"
                             class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"

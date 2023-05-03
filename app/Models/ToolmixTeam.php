@@ -17,12 +17,14 @@ class ToolmixTeam extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'mmr_min',
+        'mmr_max',
         'hard_support',
         'soft_support',
         'off_lane',
         'mid_lane',
         'safe_lane',
-        'description'
+        'commentaire'
     ];
 
     public function team(): BelongsTo

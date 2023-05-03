@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Team extends Model
 {
@@ -53,8 +54,8 @@ class Team extends Model
         return $this->hasMany(TeamEvent::class);
     }
 
-    public function toolmixTeam(): BelongsTo
+    public function toolmixTeam(): HasOne
     {
-        return $this->belongsTo(ToolmixTeam::class);
+        return $this->hasOne(ToolmixTeam::class);
     }
 }
