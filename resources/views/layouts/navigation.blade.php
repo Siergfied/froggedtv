@@ -15,13 +15,13 @@
                     <x-nav-link :href="route('article.index')" :active="request()->routeIs('article.*')">
                         {{ __('Articles') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('calendrier.index')" :active="request()->routeIs('calendrier.*')">
-                        {{ __('Calendrier') }}
-                    </x-nav-link>
                     <x-nav-link :href="route('category.create')" :active="request()->routeIs('category.*')">
                         {{ __('Category') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('category.create')" :active="request()->routeIs('category.*')">
+                    <x-nav-link :href="route('calendrier.index')" :active="request()->routeIs('calendrier.*')">
+                        {{ __('Calendrier') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('league.index')" :active="request()->routeIs('league.*')">
                         {{ __('League') }}
                     </x-nav-link>
                     <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.*') ||

@@ -3,7 +3,8 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CalendrierController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LeagueController;
+use App\Http\Controllers\LeagueDivisionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ToolmixPlayerController;
@@ -108,6 +109,28 @@ Route::controller(ToolmixTeamController::class)->group(function () {
         Route::get('edit', 'edit')->name('toolmixTeam.edit');
         Route::patch('update', 'update')->name('toolmixTeam.update');
         Route::delete('destroy', 'destroy')->name('toolmixTeam.destroy');
+    });
+});
+
+Route::controller(LeagueController::class)->group(function () {
+    Route::prefix('league')->middleware('auth')->group(function () {
+        Route::get('/', 'index')->name('league.index');
+        Route::get('create', 'create')->name('league.create');
+        Route::post('store', 'store')->name('league.store');
+        Route::get('edit', 'edit')->name('league.edit');
+        Route::patch('update', 'update')->name('league.update');
+        Route::delete('destroy', 'destroy')->name('league.destroy');
+    });
+});
+
+Route::controller(LeagueDivisionController::class)->group(function () {
+    Route::prefix('division')->middleware('auth')->group(function () {
+        Route::get('/', 'index')->name('division.index');
+        Route::get('create', 'create')->name('division.create');
+        Route::post('store', 'store')->name('division.store');
+        Route::get('edit', 'edit')->name('division.edit');
+        Route::patch('update', 'update')->name('division.update');
+        Route::delete('destroy', 'destroy')->name('division.destroy');
     });
 });
 

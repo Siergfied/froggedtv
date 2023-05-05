@@ -54,7 +54,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($user_id): View
+    public function edit(string $user_id): View
     {
         $user = User::findOrFail($user_id);
         $this->authorize('update', $user);
@@ -67,7 +67,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $user_id): RedirectResponse
+    public function update(Request $request, string $user_id): RedirectResponse
     {
         $user = User::findOrFail($user_id);
 
@@ -83,6 +83,8 @@ class UserController extends Controller
             'mmr' => ['numeric', 'min:0', 'nullable'],
         ]);
 
+        $request->validate(['avatar' => ['nullable', 'mimes:png,jpg,jpeg,webp']]);
+
         if ($request->hasFile('avatar')) {
             $image = Image::make($request->file('avatar'));
             $filename = 'user_' . $user_id . '.webp';
@@ -92,6 +94,8 @@ class UserController extends Controller
 
             $imageResized = $image->resize(400, 400)->encode('webp', 90);
             Storage::disk('public')->put('user/avatar/' . $filename, $imageResized);
+
+            $user->update(['avatar' => $filename]);
         };
 
         $user->update($validated);

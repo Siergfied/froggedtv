@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class League extends Model
+class LeagueDivision extends Model
 {
     use HasFactory;
 
@@ -23,16 +23,18 @@ class League extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'ticket',
-        'registration_start',
-        'registration_end',
-        'play_start',
-        'matches_generated'
+        'league_id',
+        'admin_id',
+        'name'
     ];
 
-    public function league(): HasMany
+    public function league(): BelongsTo
     {
-        return $this->hasMany(LeagueDivision::class);
+        return $this->belongsTo(League::class);
+    }
+
+    public function admin(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('leagues', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name', 255);
+            $table->string('ticket')->nullable();
+            $table->dateTime('registration_start');
+            $table->dateTime('registration_end');
+            $table->dateTime('play_start');
+            $table->boolean('matches_generated')->nullable();
         });
     }
 

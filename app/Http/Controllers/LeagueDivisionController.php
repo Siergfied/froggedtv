@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\League;
+use App\Models\LeagueDivision;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 
-class LeagueController extends Controller
+class LeagueDivisionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index()
     {
-        return view('league.index');
+        //
     }
 
     /**
@@ -21,7 +20,7 @@ class LeagueController extends Controller
      */
     public function create()
     {
-        return view('league.create');
+        //
     }
 
     /**
@@ -35,7 +34,7 @@ class LeagueController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(League $league)
+    public function show(LeagueDivision $leagueDivision)
     {
         //
     }
@@ -43,7 +42,7 @@ class LeagueController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(League $league)
+    public function edit(LeagueDivision $leagueDivision)
     {
         //
     }
@@ -51,7 +50,7 @@ class LeagueController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, League $league)
+    public function update(Request $request, LeagueDivision $leagueDivision)
     {
         //
     }
@@ -59,7 +58,7 @@ class LeagueController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(League $league)
+    public function destroy(LeagueDivision $leagueDivision)
     {
         //
     }
