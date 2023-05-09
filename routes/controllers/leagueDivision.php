@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ToolmixTeamController;
+use App\Http\Controllers\LeagueDivisionController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(LeagueDivisionController::class)->group(function () {
